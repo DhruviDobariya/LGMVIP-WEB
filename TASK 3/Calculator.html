@@ -1,0 +1,144 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: #9b9695;
+            font-size: 17px;
+        }
+
+        #clear {
+            width: 70px;
+            height: 60px;
+            background-color: #dbabcd;
+        }
+
+        #x {
+            width: 144px;
+            height: 60px;
+            background-color: #914471;
+        }
+
+        #ans {
+            width: 367px;
+            height: 40px;
+            background-color: #f3d0e5;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 15px 15px 0px 0px;
+        }
+        #ans1 {
+            width: 367px;
+            height: 65px;
+            background-color: #fecbe0;
+            margin-top: -20px;
+            padding: 15px;
+            border-radius: 0px 0px 15px 15px;
+            font-size: 45px;
+            text-align: right;
+        }
+
+        .formstyle {
+            width: 367px;
+            height: 522px;
+            background-color: #ffebfe;
+            margin: auto;
+            margin-top: 75px;
+            border-radius: 30px;
+            padding: 18px;
+        }
+
+        input {
+            width: 70px;
+            height: 60px;
+            background-color: rgb(254, 181, 236);
+            border-radius: 15px;
+            border: none;
+            font-weight: 700;
+            font-size: large;
+        }
+
+        input:hover {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function insert(n) {
+            document.forms.answer.value += n;
+        }
+        function equal() {
+            let exp = document.forms.answer.value;
+            if (exp[0]=='&radic;') {
+                document.forms.answer1.value = Math.sqrt(exp[1]);
+            }
+            else{
+                document.forms.answer1.value = eval(exp);
+            }
+        }
+
+        function backspace() {
+            var exp = document.forms.answer.value;
+            document.forms.answer.value = exp.substring(0, exp.length - 1);
+        }
+        function doMath(){
+            var inputNum1=document.forms.answer.value;
+            var result = Math.sqrt(inputNum1);
+            document.forms.answer1.value = result;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="formstyle">
+        <form name="forms">
+            <input type="text" name="answer" id="ans" readonly> <br></br>
+            <input type="text" name="answer1" id="ans1" readonly> <br></br>
+            <input type="button" value=" ( " onclick="insert('(')" id="clear">
+            <input type="button" value=" ) " onclick="insert(')')" id="clear">
+            <input type="button" value=" ans " onclick="equal()" id="clear">
+            <input type="button" value=" del " onclick="backspace()" id="clear">
+            <input type="button" value=" clear " onclick="form.answer.value='';form.answer1.value=''" id="clear">
+
+            <br> </br>
+
+            <input type="button" value=" 7 " onclick="insert(7)">
+            <input type="button" value=" 8 " onclick="insert(8)">
+            <input type="button" value=" 9 " onclick="insert(9)">
+            <input type="button" value=" % " onclick="insert('%')" id="clear">
+            <input type="button" value=" &radic; " onclick="doMath()" id="clear">
+
+            <br> </br>
+
+            <input type="button" value=" 4 " onclick="insert(4)">
+            <input type="button" value=" 5 " onclick="insert(5)">
+            <input type="button" value=" 6 " onclick="insert(6)">
+            <input type="button" value=" &times; " onclick="insert('*')" id="clear">
+            <input type="button" value=" &divide; " onclick="insert('/')" id="clear">
+
+            <br> </br>
+
+            <input type="button" value=" 1 " onclick="insert(1)">
+            <input type="button" value=" 2 " onclick="insert(2)">
+            <input type="button" value=" 3 " onclick="insert(3)">
+            <input type="button" value=" + " onclick="insert('+')" id="clear">
+            <input type="button" value=" - " onclick="insert('-')" id="clear">
+
+            <br> </br>
+
+            <input type="button" value=" . " onclick="insert('.')">
+            <input type="button" value=" 0 " onclick="insert(0)">
+            <input type="button" value=" +- " onclick="insert('-')" id="clear">
+            <input type="button" value=" ENTER " onclick="equal()" id="x">
+
+            <br> </br>
+
+
+            <br> </br>
+
+
+        </form>
+    </div>
+</body>
+
+</html>
